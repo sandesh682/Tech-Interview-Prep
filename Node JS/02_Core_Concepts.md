@@ -522,6 +522,8 @@ for (const id of ids) {
 }
 ```
 
+it works in normal for loop also ( not only for of)
+
 ---
 
 ## ❌ Why `await` inside `forEach` doesn’t work
