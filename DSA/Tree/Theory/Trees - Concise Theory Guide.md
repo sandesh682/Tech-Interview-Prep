@@ -19,20 +19,9 @@
 
 ## 01 - Introduction to Trees
 
-### What it is
+### What is a Tree?
 
-A hierarchical structure — one root, branching into children, no cycles.
-
-Unlike arrays or linked lists (which are linear), a tree node can have **multiple** children.
-
-### Why it exists
-
-None of these are sequential — they're all naturally hierarchical:
-
-- File systems
-- The DOM
-- Org charts
-- Decision logic
+A **Tree** is a **hierarchical, non-linear data structure** consisting of **nodes** connected by **edges** that represent **parent-child relationships**.
 
 Trees model hierarchy natively, and — if balanced — give `O(log n)` search instead of `O(n)`.
 
@@ -57,8 +46,6 @@ graph TD
 
 - File systems (folders/files)
 - DOM structure in browsers
-- Database indexes (B-Trees)
-- Compiler ASTs
 - Decision-making systems
 
 ### Common mistakes
@@ -101,6 +88,51 @@ Quick glossary — you'll use these constantly.
 
 - Swapping depth and height
 - Forgetting a single-node tree has height 0, not 1
+---
+### Depth vs Height
+
+### Depth
+The **depth** of a node is the **number of edges from the root to that node**.
+
+- Root --> Node
+- Root depth = **0**
+- Increases as we move downward
+
+### Height
+The **height** of a node is the **number of edges on the longest path from that node to a leaf**.
+
+- Node --> Leaf
+- Leaf height = **0**
+- Root height = **Height of the tree**
+
+---
+
+### Example
+
+```text
+        A
+      /   \
+     B     C
+    / \     \
+   D   E     F
+      /
+     G
+```
+
+| Node | Depth | Height |
+|------|:-----:|:------:|
+| A | 0 | 3 |
+| B | 1 | 2 |
+| C | 1 | 1 |
+| D | 2 | 0 |
+| E | 2 | 1 |
+| F | 2 | 0 |
+| G | 3 | 0 |
+
+### Quick Trick
+
+- **Depth → Root → Node** (Top ⬇️ Down)
+- **Height → Node → Leaf** (Bottom ⬆️ Up)
 
 **Next:** [[#03 - Types of Trees]]
 
@@ -110,11 +142,14 @@ Quick glossary — you'll use these constantly.
 
 ```mermaid
 graph TD
-    Tree --> Binary["Binary Tree (≤2 children)"]
-    Tree --> Nary["N-ary Tree (any # children)"]
-    Binary --> BST["BST (ordered)"]
-    Binary --> Shape["Full / Complete / Perfect"]
-    Binary --> Heap["Heap (priority)"]
+    Tree --> Binary["Binary Tree"]
+    Tree --> Nary["N-ary Tree"]
+
+    Binary --> BST["BST"]
+    Binary --> Full["Full"]
+    Binary --> Complete["Complete"]
+    Binary --> Perfect["Perfect"]
+    Binary --> Heap["Heap"]
 ```
 
 ### By child count
@@ -437,7 +472,7 @@ graph TD
 > Array index math maps perfectly onto a complete tree's shape:
 > - Left child → `2i + 1`
 > - Right child → `2i + 2`
-> - Parent → `(i - 1) / 2`
+> - Parent → `Math.floor((i - 1) / 2)`
 
 ### How operations work conceptually
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DSA/Tree/Theory/Trees - Concise Theory Guide.md",
-                "mode": "source",
+                "file": "DSA/Graph/Theory.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Trees - Concise Theory Guide"
+              "title": "Theory"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -181,8 +183,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "c0a78ad14044109c",
+  "active": "8484389dfcc25078",
   "lastOpenFiles": [
+    "DSA/Graph/Theory.md",
+    "Kruskal's Algorithm.md",
     "DSA/Tree/Theory/Trees - Concise Theory Guide.md",
     "DSA/Tree/Theory/Trees - Concise Theory Guide.md",
     "DSA/Tree/Problems",
@@ -211,7 +215,6 @@
     "Node JS/socket programming using node.js.md",
     "Node JS/redis with node.js.md",
     "Apply Tips/LinkedIn Smar Search.md",
-    "Apply Tips/Naukri Smart Search Setup.md",
     "Untitled.canvas",
     "Untitled.base",
     "Apply Tips",
