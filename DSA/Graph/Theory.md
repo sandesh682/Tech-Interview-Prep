@@ -748,7 +748,154 @@ DFS(start) {
 > `visited` prevents infinite loops in cyclic graphs.
 > 
 ---
+### Iterative Depth-First Search (DFS)
 
+#### What is DFS?
+
+Iterative DFS uses a **stack** instead of recursion.
+
+> **DFS = Stack → Pop → Visit → Push Neighbors**
+
+#### Example
+
+```text
+       A
+      / \
+     B   C
+    / \   \
+   D   E   F
+```
+
+DFS from `A`:
+
+```text
+A → B → D → E → C → F
+```
+
+#### Code
+
+```javascript
+DFSIterative(start) {
+    const result = [];
+    const visited = {};
+    
+    const stack = [start];
+    visited[start] = true;
+
+    while (stack.length) {
+        const vertex = stack.pop();
+
+        result.push(vertex);
+
+        for (const neighbor of this.adjacencyList[vertex]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                stack.push(neighbor);
+            }
+        }
+    }
+
+    return result;
+}
+```
+
+#### Complexity
+
+- **Time:** `O(V + E)`
+    
+- **Space:** `O(V)`
+    
+
+> **Recursive DFS → Call Stack**  
+> **Iterative DFS → Explicit Stack**
+
+----
+# Iterative Breadth-First Search (BFS)
+
+## What is BFS?
+
+BFS visits a graph **level by level** using a **Queue (FIFO)**.
+
+> **BFS = Queue → Dequeue → Visit → Enqueue Neighbors**
+
+### Example
+
+```text
+       A
+      / \
+     B   C
+    / \   \
+   D   E   F
+```
+
+BFS from `A`:
+
+```text
+A → B → C → D → E → F
+```
+
+## JavaScript
+
+```javascript
+BFSIterative(start) {
+    const result = [];
+    const visited = {};
+    const queue = [start];
+
+    visited[start] = true;
+
+    while (queue.length) {
+        const vertex = queue.shift();
+
+        result.push(vertex);
+
+        for (const neighbor of this.adjacencyList[vertex]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                queue.push(neighbor);
+            }
+        }
+    }
+
+    return result;
+}
+```
+
+## Complexity
+
+```text
+Time:  O(V + E)
+Space: O(V)
+```
+
+- `V` = vertices
+    
+- `E` = edges
+    
+
+## Key Points
+
+- **Queue → FIFO**
+    
+- Visits **level by level**
+    
+- Uses `visited` to handle cycles
+    
+- Useful for **shortest path in unweighted graphs**
+    
+
+## 🔑 Golden Rule — Iterative BFS & DFS
+
+> **Always mark a vertex as visited when you PUSH/ENQUEUE it, not when you POP/DEQUEUE it.**
+
+```text
+DFS → push → mark visited
+BFS → enqueue → mark visited
+```
+
+This prevents the same vertex from being added to the stack/queue multiple times.
+
+---
 ## 6. Must-Know Algorithms
 
 ### Shortest Path Algorithms
