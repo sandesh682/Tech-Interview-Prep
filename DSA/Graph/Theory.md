@@ -746,7 +746,10 @@ DFS(start) {
     
 
 > `visited` prevents infinite loops in cyclic graphs.
-> 
+
+## 🔑 Golden Rule — Iterative BFS & DFS
+
+> **Always mark `visited` when you enter the node, before exploring neighbors.**
 ---
 ### Iterative Depth-First Search (DFS)
 
