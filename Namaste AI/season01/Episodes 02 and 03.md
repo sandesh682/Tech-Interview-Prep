@@ -362,3 +362,339 @@ Final AI Model
 
 ---
 
+## 7.1 How Google Search Works
+
+Google Search mainly works in **3 steps**:
+
+```text
+🌐 Web
+  ↓
+1. Crawling
+  ↓
+2. Indexing
+  ↓
+3. Ranking
+  ↓
+🔎 Search Results
+```
+
+### 1. 🕷️ Crawling
+
+Google uses automated programs called **Googlebot** to discover and visit web pages.
+
+New pages can be discovered through:
+
+- 🔗 Links from existing pages
+    
+- 🗺️ Sitemaps
+    
+- 🔄 Revisiting known pages
+    
+- 📤 URL submissions through Search Console
+    
+
+> Google does **not** simply run one cron job over the entire internet. It uses a large, distributed crawling system that continuously decides **what to crawl and when**.
+
+### 2. 📚 Indexing
+
+Google analyzes the crawled pages and stores information about them in its **Search Index**.
+
+```text
+Web Page → Crawl → Analyze → Search Index
+```
+
+Google doesn't scan the entire internet every time you search.
+
+### 3. 🏆 Ranking
+
+When you search, Google finds relevant pages from its index and ranks them using many signals such as:
+
+- Relevance
+    
+- Quality
+    
+- Freshness
+    
+- Location/context
+    
+
+```text
+Your Query
+    ↓
+Search Index
+    ↓
+Relevant Pages
+    ↓
+Ranking
+    ↓
+Search Results
+```
+
+### ⚠️ Important
+
+**Crawling ≠ Indexing**
+
+A page being discovered and crawled **doesn't guarantee** that Google will index it or show it in search results.
+
+### 🔑 Remember
+
+> **Crawling → Discover pages**  
+> **Indexing → Store/analyze pages**  
+> **Ranking → Order the results**
+
+**Google Search = Retrieve + Rank existing information.**
+
+---
+
+## 7.2 How ChatGPT Works
+
+Unlike Google Search, ChatGPT primarily **generates an answer using an AI model** rather than simply retrieving and ranking web pages.
+
+```text
+User Prompt
+    ↓
+Tokenization
+    ↓
+LLM / Transformer
+    ↓
+Predict next tokens
+    ↓
+Generated Response
+```
+
+### 1. 💬 User Prompt
+
+You ask something like:
+
+> "Explain recursion in JavaScript."
+
+Your text is converted into **tokens** that the model can process.
+
+### 2. 🧠 LLM Processes the Prompt
+
+The tokens are passed to the **Large Language Model (LLM)**.
+
+The model has learned patterns from its training data and uses the context of your prompt to determine an appropriate response.
+
+### 3. 🔮 Predicts Tokens
+
+The model generates the response **token by token**, predicting what is most likely to come next.
+
+```text
+"Recursion is"
+       ↓
+"a function"
+       ↓
+"that calls"
+       ↓
+"itself..."
+```
+
+This happens very quickly, repeatedly, until the response is complete.
+
+### 4. 🤖 Generates the Answer
+
+The final tokens are converted back into readable text and shown to you.
+
+### 🔑 Important Difference
+
+```text
+Google Search
+
+Query
+ ↓
+Search Index
+ ↓
+Find + Rank existing pages
+ ↓
+Results
+
+
+ChatGPT
+
+Prompt
+ ↓
+LLM
+ ↓
+Generate tokens
+ ↓
+Answer
+```
+
+> **Google Search → Finds existing information.**  
+> **ChatGPT → Generates a response based on patterns learned by its model.**
+
+---
+
+## 8. AI Hallucination
+
+### 🤔 What is Hallucination?
+
+**AI Hallucination** is when an AI generates information that **sounds correct but is actually false, inaccurate, or made up**.
+
+### Example
+
+You ask:
+
+> **"Who invented JavaScript?"**
+
+Correct answer:
+
+> **Brendan Eich**
+
+If AI confidently says:
+
+> "JavaScript was invented by James Gosling in 1995."
+
+That's a **hallucination** — the answer sounds believable but is incorrect.
+
+### Why does it happen?
+
+An LLM generates text by **predicting the next token based on patterns learned during training**. It doesn't automatically verify whether every generated statement is factually correct.
+
+```text
+Prompt
+  ↓
+LLM
+  ↓
+Predicts likely tokens
+  ↓
+Generates answer
+  ↓
+❌ Incorrect / fabricated information
+  ↓
+Hallucination
+```
+
+### 🔑 Remember
+
+> **Hallucination = A confident-sounding AI answer that is factually incorrect or fabricated.**
+
+---
+
+## 9. Why Does AI Hallucination Occur?
+
+### 🧠 Core Reason
+
+An LLM is primarily trained to **predict the next token**, not to automatically verify whether every fact is true.
+
+```text
+Prompt
+  ↓
+LLM
+  ↓
+Predicts likely next token
+  ↓
+Generates response
+```
+
+If the model doesn't have reliable information, it may still generate an answer that **sounds plausible but is incorrect**.
+
+### Main Reasons
+
+1. **Next-token prediction** → The model's primary objective is to generate plausible text, not verify every fact.
+    
+2. **Missing or incomplete knowledge** → The required information may not have been present in its training data.
+    
+3. **Ambiguous questions** → The model may make assumptions when the question is unclear.
+    
+4. **Conflicting data** → Training data can contain contradictory or incorrect information.
+    
+5. **No fact verification** → Without external tools such as web search, the model may not be able to independently verify a claim.
+    
+
+### 🔑 Remember
+
+> **LLM predicts what is likely to be said, not automatically what is definitely true.**
+
+Therefore, an AI can sometimes produce a **confident-sounding but incorrect answer** — this is called **hallucination**.
+
+---
+
+## 10. How ChatGPT Uses Tools
+
+An **LLM alone** has limitations. It mainly generates text based on patterns learned during training.
+
+ChatGPT can use **external tools** to perform tasks that require additional capabilities.
+
+### 🧠 Basic Flow
+
+```text
+User
+ ↓
+ChatGPT
+ ↓
+LLM decides:
+"Can I answer this directly?"
+ ↓
+ ┌───────────────┬────────────────┐
+ ↓               ↓
+Yes              No / Tool needed
+ ↓               ↓
+Answer       Call a Tool
+                 ↓
+             Tool Result
+                 ↓
+              LLM
+                 ↓
+              Answer
+```
+
+### 🔧 Examples of Tools
+
+|Tool|Purpose|
+|---|---|
+|🌐 **Web Search**|Find current information from the internet|
+|🧮 **Calculator**|Perform accurate calculations|
+|💻 **Code / Python**|Run code and analyze data|
+|📄 **File Tools**|Read and analyze uploaded documents|
+|🖼️ **Image Tools**|Understand or generate images|
+
+### Example: Current Information
+
+You ask:
+
+> **"What is Apple's stock price today?"**
+
+The LLM's training data may not contain today's price.
+
+So ChatGPT can:
+
+```text
+User Question
+     ↓
+LLM
+     ↓
+Needs current information
+     ↓
+🌐 Web / Market Tool
+     ↓
+Current Price
+     ↓
+LLM
+     ↓
+Final Answer
+```
+
+### 🔑 Important
+
+> **The LLM decides when a tool is useful, the tool performs the task, and the LLM uses the result to generate the final response.**
+
+### 🧠 Simple Analogy
+
+Think of the **LLM as the brain** and tools as its **external abilities**.
+
+```text
+             🧠 LLM
+               │
+      ┌────────┼────────┐
+      ↓        ↓        ↓
+   🌐 Web    🧮 Calc   💻 Code
+```
+
+The important distinction is:
+
+> **The tool provides information or performs an operation; the LLM interprets the result and communicates it to you.**
+
+---
+
